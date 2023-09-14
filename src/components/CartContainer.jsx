@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { MdOutlineKeyboardBackspace } from "react-icons/md";
 import { RiRefreshFill } from "react-icons/ri";
-import { addDoc, collection } from 'firebase/firestore';
+import { addDoc, collection, updateDoc } from 'firebase/firestore';
 import {db} from './../firebase.config'
 import { motion } from "framer-motion";
 import { useStateValue } from "../context/StateProvider";
@@ -42,22 +42,30 @@ const CartContainer = () => {
 const saveData =()=>{
   let a=localStorage.getItem("cartItems");
   console.log(a);
+  
 }
+
+const navigate = useNavigate()
+
 const submitData = async(event)=>{
   event.preventDefault();
   let a=localStorage.getItem("cartItems");
   const{ title,qty,price}=a;
-  try {
-    const docRef = await addDoc(collection(db,"OrderDetails"), {
-      item:JSON.parse(a)
-    });
-     if(docRef){
-       alert("Data Stored Thank You.")
+  navigate("/question")
   
-      }
-  } catch (e) {
-    console.error("Error adding document: ", e);
-  }
+  // try {
+  //   const docRef = await addDoc(collection(db,"OrderDetails"), {
+  //     item:JSON.parse(a)
+  //   });
+  //    if(docRef){
+  //      alert("Data Stored Thank You.")
+
+  //      navigate("/onor")
+  
+  //     }
+  // } catch (e) {
+  //   console.error("Error adding document: ", e);
+  // }
  }
 
 
@@ -107,17 +115,11 @@ const submitData = async(event)=>{
               <p className="text-gray-400 text-lg">Sub Total</p>
               <p className="text-gray-400 text-lg">Rs {tot}</p>
             </div>
-            <div className="w-full flex items-center justify-between">
-              <p className="text-gray-400 text-lg">Delivery</p>
-              <p className="text-gray-400 text-lg">Rs 2.5</p>
-            </div>
-
             <div className="w-full border-b border-gray-600 my-2"></div>
-
             <div className="w-full flex items-center justify-between">
               <p className="text-gray-200 text-xl font-semibold">Total</p>
               <p className="text-gray-200 text-xl font-semibold">
-                Rs{tot + 2.5}
+                Rs{tot}
               </p>
             </div>
 

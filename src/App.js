@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
-import { AboutUs, CreateContainer, Dashboard, FeedBack, Header, MainContainer, MainMenu, OnOrder, Orders, Question} from "./components";
+import { AboutUs, CreateContainer, Dashboard, FeedBack, Header, MainContainer, MainMenu, OfflineDetails, OnOrder, Orders, Question, Question2} from "./components";
 import { useStateValue } from "./context/StateProvider";
 import { getAllFoodItems } from "./utils/firebaseFunctions";
 import { actionType } from "./context/reducer";
@@ -41,6 +41,8 @@ const App = () => {
            <Route path='/feedans' element={<Feedbackans/>}/>
            <Route path='/order' element={<Orders/>}/>
            <Route path='/onor' element={<OnOrder/>}/>
+           <Route path='/off' element={<Question2/>}/>
+          <Route path="/offdet" element={<OfflineDetails/>}/>
           </Routes>
         </main>
       </div>

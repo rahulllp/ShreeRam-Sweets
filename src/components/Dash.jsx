@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const Dash = () => {
   return (
-    <div className='lg:mb-[6%]'>
+    <div className='lg:mb-[8.2%]'>
           <div className='lg:ml-[38%] lg:mt-[5.7%] ml-[1.3%] mt-[3%]'>
           </div>
  
@@ -37,7 +37,7 @@ const Dash = () => {
         <div class="h-full hover:bg-orange-100 bg-opacity-75 px-8 pt-16 pb-24 rounded-2xl overflow-hidden text-center relative shadow-xl">
           <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">CATEGORY</h2>
           <h1 class="title-font sm:text-2xl text-xl font-medium text-orange-500  mb-3">Orders (Offline)</h1>
-            <Link to={'/order'} class="text-red-700 inline-flex items-center cursor-pointer" >Next 
+            <Link to={'/offdet'} class="text-red-700 inline-flex items-center cursor-pointer" >Next 
             <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
               <path d="M5 12h14"></path>
               <path d="M12 5l7 7-7 7"></path>

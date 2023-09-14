@@ -39,10 +39,22 @@ const OnlineOrder = () => {
   
       console.log()
     try {
+      const date = new Date();
+
+      let day = date.getDate();
+      let month = date.getMonth() + 1;
+      let year = date.getFullYear();
+
+      // This arrangement can be altered based on how we want the date's format to appear.
+      let currentDate = `${day}-${month}-${year}`;
+      console.log(currentDate); // "17-6-2022"
+      let a=localStorage.getItem("cartItems");
       const docRef = await addDoc(collection(db,"OrderDetails"), {
         name: userData.name,
         mobile: userData.mobile,
-        address: userData.address    
+        address: userData.address,
+        date:currentDate,
+        items:JSON.parse(a)
       });
   
   
@@ -52,7 +64,7 @@ const OnlineOrder = () => {
           mobile:"",
           address:"",
         })
-        alert("Data Stored Thank You.")
+        alert("Your Order is Confirmed, Thank You.")
        }else{
         alert("Please Enter All the Required Data");
        }
@@ -95,9 +107,9 @@ const OnlineOrder = () => {
             <textarea id="address" name="address" value={userData.address} onChange={postUserData} class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
           </div>
         </div>
-
+        
         <div class="p-2 w-full">
-          <button class="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg" onClick={submitData}>Submit</button>
+          <button class="flex mx-auto text-white bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-800 rounded text-lg" onClick={submitData}>Order</button>
         </div>
       </div>
     </div>

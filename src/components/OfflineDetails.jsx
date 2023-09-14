@@ -28,11 +28,11 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import Swal from "sweetalert2";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
-const OnOrderDetails = () => {
+const OfflineDetails = () => {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(5);
   const [rows, setRows] = useState([]);
-  const empCollectionRef = collection(db, "OrderDetails");
+  const empCollectionRef = collection(db, "OfflineDetails");
 
   useEffect(() => {
     getUsers();
@@ -67,7 +67,7 @@ const OnOrderDetails = () => {
     });
   };
   const deleteApi = async (id) => {
-    const userDoc = doc(db, "OrderDetails", id);
+    const userDoc = doc(db, "OfflineDetails", id);
     await deleteDoc(userDoc);
     Swal.fire("Deleted!", "Your file has been deleted.", "success");
 
@@ -100,14 +100,9 @@ const OnOrderDetails = () => {
                   align="left"
                   style={{ minWidth: "100px"} }
                 >
-                  Mobile Number  
+                Table Number  
                 </TableCell>
-                <TableCell
-                  align="left"
-                  style={{ minWidth: "100px"} }
-                >
-                  Address  
-                </TableCell>
+               
                 <TableCell
                   align="left"
                   style={{ minWidth: "100px"} }
@@ -130,7 +125,7 @@ const OnOrderDetails = () => {
                   align="left"
                   style={{ minWidth: "100px"} }
                 >
-                  Date  
+                  Action  
                 </TableCell>
                 
             </TableRow>
@@ -148,9 +143,7 @@ const OnOrderDetails = () => {
                         <TableCell key={row.id} align="left">
                          {row.mobile}
                         </TableCell>
-                        <TableCell key={row.id} align="left">
-                         {row.address}
-                        </TableCell>
+                        
                         <TableCell key={row.id} align="left">
                          {row.items.map((element)=>{return(<div>{element.title}</div> )})}
                         </TableCell>
@@ -160,8 +153,20 @@ const OnOrderDetails = () => {
                         <TableCell key={row.id} align="left">
                         {row.items.map((element)=>{return(<div>{element.price}</div> )})}
                         </TableCell>
-                        <TableCell key={row.id} align="left">
-                         {row.date}
+                        <TableCell align="left">
+                          <Stack spacing={2} direction="row">
+                           
+                            <DeleteIcon
+                              style={{
+                                fontSize: "20px",
+                                color: "darkred",
+                                cursor: "pointer",
+                              }}
+                              onClick={() => {
+                                deleteUser(row.id);
+                              }}
+                            />
+                          </Stack>
                         </TableCell>
                        
                   </TableRow>
@@ -184,4 +189,4 @@ const OnOrderDetails = () => {
   )
 }
 
-export default OnOrderDetails
+export default OfflineDetails

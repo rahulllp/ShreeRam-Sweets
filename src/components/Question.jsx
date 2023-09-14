@@ -31,7 +31,7 @@ const Question = () => {
           <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">CATEGORY</h2>
           <h1 class="title-font sm:text-2xl text-xl font-medium text-orange-500  mb-3">OFFLINE VISIT</h1>
           <p class="leading-relaxed mb-3 text-orange-500">Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat.</p>
-          <Link to={'/menucard'} class="text-red-700 inline-flex items-center cursor-pointer" >Order Now
+          <Link to={'/off'} class="text-red-700 inline-flex items-center cursor-pointer" >Order Now
             <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
               <path d="M5 12h14"></path>
               <path d="M12 5l7 7-7 7"></path>
@@ -48,7 +48,7 @@ const Question = () => {
           <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">CATEGORY</h2>
           <h1 class="title-font sm:text-2xl text-xl font-medium text-orange-500 mb-3">ONLINE ORDER</h1>
           <p class="leading-relaxed mb-3 text-orange-400">Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat.</p>
-          <Link to={'/menucard'} class="text-red-700 inline-flex items-center cursor-pointer">Order Now
+          <Link to={'/onor'} class="text-red-700 inline-flex items-center cursor-pointer">Order Now
             <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
               <path d="M5 12h14"></path>
               <path d="M12 5l7 7-7 7"></path>
